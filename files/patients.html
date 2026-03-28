@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patients — HôpitalPro</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-brand">
+      <span class="nav-icon">🏥</span>
+      <span class="nav-title">HôpitalPro</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="../main.html">Accueil</a></li>
+      <li><a href="patients.html" class="active">Patients</a></li>
+      <li><a href="medecins.html">Médecins</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle">☰</button>
+  </nav>
+
+  <section class="page-hero">
+    <h1>👥 Gestion des Patients</h1>
+    <p>Liste complète des patients enregistrés dans le système</p>
+  </section>
+
+  <section class="page-content">
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="🔍 Rechercher un patient par nom, service...">
+      <a href="#" class="btn btn-primary">+ Nouveau patient</a>
+    </div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nom complet</th>
+          <th>Âge</th>
+          <th>Service</th>
+          <th>Médecin traitant</th>
+          <th>Statut</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>#001</td>
+          <td>Ahmed Ben Ali</td>
+          <td>45</td>
+          <td>Cardiologie</td>
+          <td>Dr. Mansour</td>
+          <td><span class="badge badge-green">Hospitalisé</span></td>
+        </tr>
+        <tr>
+          <td>#002</td>
+          <td>Fatima Trabelsi</td>
+          <td>32</td>
+          <td>Neurologie</td>
+          <td>Dr. Chaari</td>
+          <td><span class="badge badge-blue">En consultation</span></td>
+        </tr>
+        <tr>
+          <td>#003</td>
+          <td>Mohamed Saidi</td>
+          <td>60</td>
+          <td>Médecine générale</td>
+          <td>Dr. Bouaziz</td>
+          <td><span class="badge badge-orange">En attente</span></td>
+        </tr>
+        <tr>
+          <td>#004</td>
+          <td>Sarra Hamdi</td>
+          <td>28</td>
+          <td>Ophtalmologie</td>
+          <td>Dr. Khelifi</td>
+          <td><span class="badge badge-green">Hospitalisée</span></td>
+        </tr>
+        <tr>
+          <td>#005</td>
+          <td>Karim Jaziri</td>
+          <td>52</td>
+          <td>Kinésithérapie</td>
+          <td>Dr. Ayari</td>
+          <td><span class="badge badge-blue">En consultation</span></td>
+        </tr>
+        <tr>
+          <td>#006</td>
+          <td>Nour El Abed</td>
+          <td>19</td>
+          <td>Dentisterie</td>
+          <td>Dr. Ferjani</td>
+          <td><span class="badge badge-orange">En attente</span></td>
+        </tr>
+        <tr>
+          <td>#007</td>
+          <td>Riadh Maaloul</td>
+          <td>71</td>
+          <td>Cardiologie</td>
+          <td>Dr. Mansour</td>
+          <td><span class="badge badge-red">Soins intensifs</span></td>
+        </tr>
+        <tr>
+          <td>#008</td>
+          <td>Ines Baccouche</td>
+          <td>38</td>
+          <td>Neurologie</td>
+          <td>Dr. Chaari</td>
+          <td><span class="badge badge-green">Hospitalisée</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-bottom">
+      <p>&copy; 2026 HôpitalPro — Projet DS1 Git/GitHub — Esprit School of Business</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
