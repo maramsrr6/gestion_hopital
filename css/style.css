@@ -576,9 +576,10 @@ ul {
   border-bottom: none;
 }
 
-.data-table tr:hover td {
-  background: var(--primary-light);
+.data-table tbody tr:nth-child(even) {
+  background-color: #f8fafc;
 }
+
 
 /* BADGES */
 .badge {
