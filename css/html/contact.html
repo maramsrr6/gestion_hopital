@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — HôpitalPro</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .contact-info h3 { font-size: 1.3rem; margin-bottom: 1.2rem; color: var(--primary); }
+    .contact-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 1.2rem; }
+    .contact-item-icon { font-size: 1.4rem; }
+    .contact-item-text strong { display: block; font-size: 0.9rem; color: var(--text); }
+    .contact-item-text span { font-size: 0.85rem; color: var(--text-light); }
+    .contact-form { background: var(--white); padding: 2rem; border-radius: var(--radius); box-shadow: var(--shadow); }
+    .contact-form h3 { font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--text); }
+    .contact-form input,
+    .contact-form textarea { width: 100%; padding: 11px 14px; border: 1.5px solid var(--border); border-radius: 8px; font-size: 0.9rem; margin-bottom: 1rem; font-family: inherit; }
+    .contact-form input:focus,
+    .contact-form textarea:focus { outline: none; border-color: var(--primary); }
+    .contact-form textarea { height: 120px; resize: vertical; }
+    @media (max-width: 700px) { .contact-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-brand">
+      <span class="nav-icon">🏥</span>
+      <span class="nav-title">HôpitalPro</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="../main.html">Accueil</a></li>
+      <li><a href="patients.html">Patients</a></li>
+      <li><a href="medecins.html">Médecins</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle">☰</button>
+  </nav>
+
+  <section class="page-hero">
+    <h1>📞 Contactez-nous</h1>
+    <p>Notre équipe est disponible pour répondre à toutes vos questions</p>
+  </section>
+
+  <section class="page-content">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Informations de contact</h3>
+        <div class="contact-item">
+          <span class="contact-item-icon">📍</span>
+          <div class="contact-item-text">
+            <strong>Adresse</strong>
+            <span>Avenue Habib Bourguiba, Tunis, Tunisie</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-icon">📞</span>
+          <div class="contact-item-text">
+            <strong>Téléphone</strong>
+            <span>+216 71 000 000</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-icon">✉️</span>
+          <div class="contact-item-text">
+            <strong>Email</strong>
+            <span>contact@hopitalpro.tn</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-icon">🕐</span>
+          <div class="contact-item-text">
+            <strong>Horaires</strong>
+            <span>Lun – Sam : 8h00 – 20h00<br>Urgences : 24h/24</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <h3>Envoyer un message</h3>
+        <form id="contactForm">
+          <input type="text" placeholder="Votre nom" required>
+          <input type="email" placeholder="Votre email" required>
+          <input type="text" placeholder="Sujet">
+          <textarea placeholder="Votre message..."></textarea>
+          <button type="submit" class="btn btn-primary" style="width:100%">Envoyer le message</button>
+        </form>
+        <p id="contactSuccess" style="display:none;color:#27ae60;margin-top:1rem;font-weight:600">✅ Message envoyé avec succès !</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-bottom">
+      <p>&copy; 2026 HôpitalPro — Projet DS1 Git/GitHub — Esprit School of Business</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      this.style.display = 'none';
+      document.getElementById('contactSuccess').style.display = 'block';
+    });
+  </script>
+</body>
+</html>
