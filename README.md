@@ -16,7 +16,7 @@ Maryem kader @maryemkader branche : feature-patients, feature-footer, feature-f
 
 Maryemchibani  @meryamch404-cmyk branche :feature-medecins, feature-contact, feature-responsive
 
- Structure du projet
+ structure du projet
 
 gestion_hopital/
 ├── main.html ← Page accueil
