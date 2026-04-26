@@ -1,0 +1,159 @@
+name: CI/CD - HôpitalPro DS2
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+
+  # ============================================
+  # ÉTAPE 1 : Tests - Validation des fichiers
+  # ============================================
+  test:
+    name: "Tests - Validation HTML/CSS"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout du code
+        uses: actions/checkout@v4
+
+      - name: Vérifier la présence des fichiers essentiels
+        run: |
+          echo "=== Vérification de la structure du projet ==="
+          
+          # Vérifier main.html
+          if [ ! -f "main.html" ]; then
+            echo "ERREUR: main.html manquant !"
+            exit 1
+          fi
+          echo "main.html trouvé"
+
+          # Vérifier les dossiers
+          if [ ! -d "css" ]; then
+            echo "ERREUR: dossier css/ manquant !"
+            exit 1
+          fi
+          echo "css/ trouvé"
+
+          if [ ! -d "js" ]; then
+            echo "ERREUR: dossier js/ manquant !"
+            exit 1
+          fi
+          echo "js/ trouvé"
+
+          if [ ! -d "html" ]; then
+            echo "ERREUR: dossier html/ manquant !"
+            exit 1
+          fi
+          echo "html/ trouvé"
+
+          # Vérifier les pages HTML
+          for page in patients medecins contact; do
+            if [ ! -f "html/${page}.html" ]; then
+              echo "AVERTISSEMENT: html/${page}.html manquant"
+            else
+              echo "html/${page}.html trouvé"
+            fi
+          done
+
+          echo "Structure validée avec succès !"
+
+      - name: Vérifier le Dockerfile
+        run: |
+          echo "=== Vérification du Dockerfile ==="
+          if [ ! -f "Dockerfile" ]; then
+            echo "ERREUR: Dockerfile manquant !"
+            exit 1
+          fi
+          echo "Dockerfile présent !"
+
+      - name: Valider la syntaxe HTML basique
+        run: |
+          echo "=== Validation syntaxe HTML ==="
+          for file in main.html html/*.html; do
+            if [ -f "$file" ]; then
+              # Vérifier que le fichier contient les balises de base
+              if grep -q "<!DOCTYPE\|<html\|<head\|<body" "$file"; then
+                echo "$file : structure HTML valide"
+              else
+                echo "AVERTISSEMENT: $file - structure HTML incomplète"
+              fi
+            fi
+          done
+          echo "Validation terminée !"
+
+  # ============================================
+  # ÉTAPE 2 : Build - Construction image Docker
+  # ============================================
+  build:
+    name: "Build - Image Docker"
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - name: Checkout du code
+        uses: actions/checkout@v4
+
+      - name: Construire l'image Docker
+        run: |
+          echo "=== Construction de l'image Docker ==="
+          docker build -t hopitalpro:latest -t hopitalpro:${{ github.sha }} .
+          echo "Image construite avec succès !"
+
+      - name: Tester que le conteneur démarre correctement
+        run: |
+          echo "=== Test du conteneur ==="
+          docker run -d --name test-hopital -p 8080:80 hopitalpro:latest
+          sleep 3
+          
+          # Vérifier que le site répond
+          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:8080)
+          echo "Code HTTP reçu : $HTTP_CODE"
+          
+          if [ "$HTTP_CODE" = "200" ]; then
+            echo "Le site répond correctement (200 OK) !"
+          else
+            echo "ERREUR: Le site ne répond pas correctement (code: $HTTP_CODE)"
+            docker logs test-hopital
+            exit 1
+          fi
+          
+          docker stop test-hopital
+          docker rm test-hopital
+
+      - name: Afficher les informations de l'image
+        run: |
+          echo "=== Infos de l'image ==="
+          docker images hopitalpro
+          echo "Taille de l'image :"
+          docker inspect hopitalpro:latest --format='{{.Size}}' | awk '{printf "%.1f MB\n", $1/1024/1024}'
+
+  # ============================================
+  # BONUS - ÉTAPE 3 : Security Scan (Trivy)
+  # ============================================
+  security-scan:
+    name: "Bonus - Security Scan"
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Checkout du code
+        uses: actions/checkout@v4
+
+      - name: Construire l'image pour le scan
+        run: docker build -t hopitalpro:scan .
+
+      - name: Scanner les vulnérabilités avec Trivy
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: hopitalpro:scan
+          format: table
+          exit-code: 0
+          severity: CRITICAL,HIGH
+          ignore-unfixed: true

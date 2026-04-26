@@ -1,0 +1,22 @@
+# Git
+.git
+.gitignore
+
+# Documentation
+README.md
+
+# Docker (inutile à copier dans l'image)
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# GitHub Actions
+.github/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+*.log
+
+# Fichier sans extension (gestion_hopital)
+gestion_hopital

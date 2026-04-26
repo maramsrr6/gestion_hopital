@@ -1,0 +1,165 @@
+!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestion Hôpital — Accueil</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <span class="nav-icon">🏥</span>
+      <span class="nav-title">HôpitalPro</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="main.html" class="active">Accueil</a></li>
+      <li><a href="html/patients.html">Patients</a></li>
+      <li><a href="html/medecins.html">Médecins</a></li>
+      <li><a href="html/contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle">☰</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Système de Gestion Hospitalière</h1>
+      <p>Gérez vos patients, médecins et rendez-vous simplement et efficacement.</p>
+      <div class="hero-buttons">
+        <a href="html/patients.html" class="btn btn-primary">Voir les patients</a>
+        <a href="html/medecins.html" class="btn btn-outline">Nos médecins</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <div class="hero-card">
+        <div class="stat-row">
+          <div class="stat"><span class="stat-number">248</span><span class="stat-label">Patients</span></div>
+          <div class="stat"><span class="stat-number">36</span><span class="stat-label">Médecins</span></div>
+          <div class="stat"><span class="stat-number">12</span><span class="stat-label">Services</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <h2 class="section-title">Nos Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🫀</div>
+        <h3>Cardiologie</h3>
+        <p>Diagnostic et traitement des maladies cardiaques par des spécialistes expérimentés.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🧠</div>
+        <h3>Neurologie</h3>
+        <p>Prise en charge des troubles du système nerveux central et périphérique.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🦷</div>
+        <h3>Dentisterie</h3>
+        <p>Soins dentaires complets pour adultes et enfants dans un cadre moderne.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">👁️</div>
+        <h3>Ophtalmologie</h3>
+        <p>Consultation, bilan visuel et traitement des maladies des yeux.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🩺</div>
+        <h3>Médecine générale</h3>
+        <p>Consultations générales, bilans de santé et suivi médical régulier.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏃</div>
+        <h3>Kinésithérapie</h3>
+        <p>Rééducation fonctionnelle et traitement des douleurs musculaires.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-section">
+    <div class="stats-container">
+      <div class="stat-item">
+        <span class="big-number">+15</span>
+        <span class="big-label">Années d'expérience</span>
+      </div>
+      <div class="stat-item">
+        <span class="big-number">248</span>
+        <span class="big-label">Patients actifs</span>
+      </div>
+      <div class="stat-item">
+        <span class="big-number">36</span>
+        <span class="big-label">Médecins spécialistes</span>
+      </div>
+      <div class="stat-item">
+        <span class="big-number">98%</span>
+        <span class="big-label">Taux de satisfaction</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- RENDEZ-VOUS -->
+  <section class="rdv-section" id="rdv">
+    <div class="rdv-content">
+      <h2>Prendre un rendez-vous</h2>
+      <p>Remplissez le formulaire ci-dessous et notre équipe vous contactera dans les plus brefs délais.</p>
+      <form class="rdv-form" id="rdvForm">
+        <div class="form-row">
+          <input type="text" placeholder="Votre nom complet" required>
+          <input type="tel" placeholder="Numéro de téléphone" required>
+        </div>
+        <div class="form-row">
+          <select required>
+            <option value="">Choisir un service</option>
+            <option>Cardiologie</option>
+            <option>Neurologie</option>
+            <option>Dentisterie</option>
+            <option>Ophtalmologie</option>
+            <option>Médecine générale</option>
+            <option>Kinésithérapie</option>
+          </select>
+          <input type="date" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%">Confirmer le rendez-vous</button>
+      </form>
+      <p class="form-success" id="formSuccess">✅ Rendez-vous demandé avec succès !</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="nav-icon">🏥</span>
+        <span class="nav-title">HôpitalPro</span>
+        <p>Votre santé, notre priorité.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="main.html">Accueil</a></li>
+          <li><a href="html/patients.html">Patients</a></li>
+          <li><a href="html/medecins.html">Médecins</a></li>
+          <li><a href="html/contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p>📍 Tunis, Tunisie</p>
+        <p>📞 +216 71 000 000</p>
+        <p>✉️ contact@hopitalpro.tn</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 HôpitalPro — Projet DS1 Git/GitHub — Esprit School of Business</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
