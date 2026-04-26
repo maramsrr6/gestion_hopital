@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Médecins — HôpitalPro</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-brand">
+      <span class="nav-icon">🏥</span>
+      <span class="nav-title">HôpitalPro</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="../main.html">Accueil</a></li>
+      <li><a href="patients.html">Patients</a></li>
+      <li><a href="medecins.html" class="active">Médecins</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle">☰</button>
+  </nav>
+
+  <section class="page-hero">
+    <h1>🩺 Notre Équipe Médicale</h1>
+    <p>Des spécialistes qualifiés à votre service</p>
+  </section>
+
+  <section class="page-content">
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="🔍 Rechercher un médecin par nom, spécialité...">
+    </div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nom</th>
+          <th>Spécialité</th>
+          <th>Disponibilité</th>
+          <th>Patients suivis</th>
+          <th>Statut</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>#M01</td>
+          <td>Dr. Mansour Karoui</td>
+          <td>Cardiologie</td>
+          <td>Lun – Ven</td>
+          <td>42</td>
+          <td><span class="badge badge-green">Disponible</span></td>
+        </tr>
+        <tr>
+          <td>#M02</td>
+          <td>Dr. Chaari Sonia</td>
+          <td>Neurologie</td>
+          <td>Mar – Sam</td>
+          <td>31</td>
+          <td><span class="badge badge-green">Disponible</span></td>
+        </tr>
+        <tr>
+          <td>#M03</td>
+          <td>Dr. Bouaziz Hichem</td>
+          <td>Médecine générale</td>
+          <td>Lun – Sam</td>
+          <td>78</td>
+          <td><span class="badge badge-orange">Occupé</span></td>
+        </tr>
+        <tr>
+          <td>#M04</td>
+          <td>Dr. Khelifi Amira</td>
+          <td>Ophtalmologie</td>
+          <td>Lun – Ven</td>
+          <td>25</td>
+          <td><span class="badge badge-green">Disponible</span></td>
+        </tr>
+        <tr>
+          <td>#M05</td>
+          <td>Dr. Ayari Tarek</td>
+          <td>Kinésithérapie</td>
+          <td>Mer – Sam</td>
+          <td>19</td>
+          <td><span class="badge badge-blue">En consultation</span></td>
+        </tr>
+        <tr>
+          <td>#M06</td>
+          <td>Dr. Ferjani Leila</td>
+          <td>Dentisterie</td>
+          <td>Lun – Jeu</td>
+          <td>33</td>
+          <td><span class="badge badge-green">Disponible</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-bottom">
+      <p>&copy; 2026 HôpitalPro — Projet DS1 Git/GitHub — Esprit School of Business</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
