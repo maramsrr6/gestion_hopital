@@ -1,0 +1,25 @@
+﻿version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: hopitalpro-web
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    networks:
+      - hopital-network
+
+  logs-viewer:
+    image: python:3.11-alpine
+    container_name: hopitalpro-logs
+    working_dir: /app
+    command: python -m http.server 8081
+    ports:
+      - "8081:8081"
+    networks:
+      - hopital-network
+
+networks:
+  hopital-network:
+    driver: bridge
