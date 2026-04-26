@@ -6,35 +6,20 @@ Esprit School of Business — 2026
  Description du projet
 
 HôpitalPro est un mini-site web statique développé en équipe de 3 étudiants.
-Le site permet de gérer les patients, les médecins et les rendez-vous d&#39;un hôpital.
-
- L&#39;objectif principal est la maîtrise de Git/GitHub et du workflow
-
-collaboratif, pas la complexité du site.
+Le site permet de gérer les patients, les médecins et les rendez-vou. l'objectif principal est la maîtrise de Git/GitHub et du workflow collaboratif, pas la complexité du site.
 
  Membres du groupe
-Étudiant GitHub Branches
-Maram @maramsrr6 feature-homepage, feature-
 
-navbar
+Maram @maramsrr6    branche : feature-homepage, feature-navbar
 
-Maryem
-kader @maryemkader feature-patients, feature-
-footer, feature-formulaire
+Maryem kader @maryemkader branche : feature-patients, feature-footer, feature-formulaire
 
-Maryem
-chibani
-
-@meryamch404-
-cmyk
-
-feature-medecins, feature-
-contact, feature-responsive
+Maryemchibani  @meryamch404-cmyk branche :feature-medecins, feature-contact, feature-responsive
 
  Structure du projet
 
 gestion_hopital/
-├── main.html ← Page d&#39;accueil
+├── main.html ← Page accueil
 ├── README.md
 ├── css/
 │ └── style.css ← Styles et responsive
@@ -67,28 +52,27 @@ main
 ├── feature-contact
 ├── feature-responsive
 ├── feature-formulaire
-└── conflict-test
 Branche Rôle
 main Version stable finale
-develop Branche d&#39;intégration
+develop Branche intégration
 feature-xxx Une fonctionnalité par branche
 
  Commandes Git utilisées
 
 # Configuration
-git config --global user.name &quot;Votre Nom&quot;
-git config --global user.email &quot;email@esprit.tn&quot;
+git config --global user.name Votre Nom
+git config --global user.email email@esprit.tn
 
 # Cloner le dépôt
 git clone https://github.com/maramsrr6/gestion_hopital.git
-# Voir l&#39;état des fichiers
+# Voir état des fichiers
 git status
 # Créer une nouvelle branche
 git checkout -b feature-xxx
 # Ajouter les fichiers modifiés
 git add .
 # Commiter avec un message
-git commit -m &quot;feat: description claire&quot;
+git commit -m feat: description claire
 # Envoyer sur GitHub
 git push origin feature-xxx
 # Récupérer les dernières modifications
@@ -103,8 +87,8 @@ git branch -a
  Convention des commits
 
 feat: nouvelle fonctionnalité
-fix: correction d&#39;un bug
-update: mise à jour d&#39;une fonctionnalité
+fix: correction un bug
+update: mise à jour une fonctionnalité
 docs: documentation
 style: changement de style CSS
 Exemples de commits du projet
@@ -142,17 +126,12 @@ PR Titre Branches
 Cause du conflit
 Deux branches (develop et conflict-test) ont modifié la même
 ligne dans main.html simultanément.
- Branche develop → &lt;h1&gt;Système de Gestion Hospitalière — Version
-A&lt;/h1&gt;
- Branche conflict-test → &lt;h1&gt;Système de Gestion Hospitalière — Version
-B&lt;/h1&gt;
-Marqueurs affichés par Git
+ Branche develop → Système de Gestion Hospitalière — Version
+ Branche conflict-test → Système de Gestion Hospitalière — Version Marqueurs affichés par Git
 
-&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-&lt;h1&gt;Système de Gestion Hospitalière — Version A&lt;/h1&gt;
-=======
-&lt;h1&gt;Système de Gestion Hospitalière — Version B&lt;/h1&gt;
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; conflict-test
+
+Système de Gestion Hospitalière — Version 
+
 Méthode de résolution
 # 1. Identifier le conflit
 git status
@@ -162,7 +141,8 @@ git status
 # → Supprimer tous les marqueurs
 # 3. Sauvegarder Ctrl+S puis finaliser
 git add .
-git commit -m &quot;fix: resolve merge conflict on main.html title&quot;
+git commit -m 
+fix: resolve merge conflict on main.html title
 git push origin develop
 Leçon apprise
 Toujours faire git pull origin develop avant de commencer à travailler pour éviter
