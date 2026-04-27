@@ -1,0 +1,47 @@
+﻿name: CI/CD - HopitalPro DS2
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  test:
+    name: Tests - Validation HTML
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout du code
+        uses: actions/checkout@v4
+
+      - name: Verifier les fichiers essentiels
+        run: |
+          if [ ! -f "main.html" ]; then echo "ERREUR: main.html manquant !"; exit 1; fi
+          if [ ! -d "css" ]; then echo "ERREUR: dossier css/ manquant !"; exit 1; fi
+          if [ ! -d "js" ]; then echo "ERREUR: dossier js/ manquant !"; exit 1; fi
+          if [ ! -d "html" ]; then echo "ERREUR: dossier html/ manquant !"; exit 1; fi
+          echo "Structure validee !"
+
+  build:
+    name: Build - Image Docker
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout du code
+        uses: actions/checkout@v4
+
+      - name: Construire l image Docker
+        run: docker build -t hopitalpro:latest .
+
+      - name: Tester le conteneur
+        run: |
+          docker run -d --name test-hopital -p 8080:80 hopitalpro:latest
+          sleep 3
+          curl -f http://localhost:8080 || exit 1
+          docker stop test-hopital
+          docker rm test-hopital
+          echo "Conteneur OK !"
