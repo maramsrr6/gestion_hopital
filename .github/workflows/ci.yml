@@ -21,9 +21,9 @@ jobs:
       - name: Verifier les fichiers essentiels
         run: |
           if [ ! -f "main.html" ]; then echo "ERREUR: main.html manquant !"; exit 1; fi
-          if [ ! -d "css" ]; then echo "ERREUR: dossier css/ manquant !"; exit 1; fi
-          if [ ! -d "js" ]; then echo "ERREUR: dossier js/ manquant !"; exit 1; fi
-          if [ ! -d "html" ]; then echo "ERREUR: dossier html/ manquant !"; exit 1; fi
+          if [ ! -d "css" ]; then echo "ERREUR: css/ manquant !"; exit 1; fi
+          if [ ! -d "js" ]; then echo "ERREUR: js/ manquant !"; exit 1; fi
+          if [ ! -d "html" ]; then echo "ERREUR: html/ manquant !"; exit 1; fi
           echo "Structure validee !"
 
   build:
